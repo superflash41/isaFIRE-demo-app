@@ -1,0 +1,50 @@
+# ---- Global Ignore ----
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+*.iml
+*.log
+
+# ---- Python / Backend ----
+__pycache__/
+*.pyc
+*.pyo
+env/
+.venv/
+*.egg-info/
+pip-log.txt
+
+# ---- FastAPI / Backend ----
+models/
+*.keras
+*.h5
+config.json             # Custom configuration files
+
+# ---- Node.js / Frontend ----
+node_modules/
+npm-debug.log
+yarn-error.log
+.pnp/
+.pnp.js
+.next/
+out/
+dist/
+coverage/
+*.cache
+
+# ---- Environment Variables ----
+.env
+.env.local
+.env.*
+*.secret
+
+# ---- Deployment ----
+*.pem
+*.crt
+*.key
+
+# ---- Miscellaneous ----
+*.bak                   # Backup files
+*.tmp                   # Temporary files
