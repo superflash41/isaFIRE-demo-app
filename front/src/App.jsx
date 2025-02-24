@@ -17,6 +17,7 @@ function App() {
     }
   };
 
+  const API_URL = import.meta.env.VITE_API_URL
   const handleClassify = async () => {
     if (!selectedFile) return;
     setLoading(true);
@@ -24,12 +25,16 @@ function App() {
     formData.append('file', selectedFile);
 
     try {
-      const response = await fetch('http://localhost:8000/predict', {
+      const response = await fetch(`${API_URL}/predict`, {
         method: 'POST',
         body: formData,
       });
+
+      const textResponse = await response.text(); // Debugging response
+      console.log("🟢 Raw Response:", textResponse); // Debug log
+
       if (!response.ok) throw new Error('Error in request');
-      const data = await response.json();
+      const data = JSON.parse(textResponse);
       console.log(data);
       setResult(data);
     } catch (err) {
