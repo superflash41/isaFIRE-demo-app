@@ -7,6 +7,10 @@ function App() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const [selectedModelName, setSelectedModelName] = useState("densenet");
+
+  const API_URL = import.meta.env.VITE_API_URL
+
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setSelectedFile(file);
@@ -17,12 +21,12 @@ function App() {
     }
   };
 
-  const API_URL = import.meta.env.VITE_API_URL
   const handleClassify = async () => {
     if (!selectedFile) return;
     setLoading(true);
     const formData = new FormData();
     formData.append('file', selectedFile);
+    formData.append('model_name', selectedModelName);
 
     try {
       const response = await fetch(`${API_URL}/predict`, {
@@ -48,6 +52,21 @@ function App() {
   return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
         <h1 className='text-4xl font-extrabold text-gray-800 mb-6'>Wildfire Classifier</h1>
+        {/* model dropdown */}
+        <div className="mb-4">
+          <label className="mr-2 font-semibold">Select Model:</label>
+          <select
+              value={selectedModelName}
+              onChange={(e) => setSelectedModelName(e.target.value)}
+              className="border rounded px-2 py-1"
+          >
+            <option value="densenet">DenseNet</option>
+            <option value="resnet">ResNet</option>
+            <option value="xception">Xception</option>
+            <option value="ensemble">Ensemble</option>
+          </select>
+        </div>
+
         <label className="cursor-pointer mb-4">
           <input
               type="file"

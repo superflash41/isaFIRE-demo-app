@@ -3,4 +3,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-MODEL_PATH = os.getenv("MODEL_PATH", "models/densenet.keras")
+DENSENET_PATH = os.getenv("DENSENET_PATH")
+RESNET_PATH = os.getenv("RESNET_PATH")
+XCEPTION_PATH = os.getenv("XCEPTION_PATH")
+ENSEMBLE_PATH = os.getenv("ENSEMBLE_PATH")
