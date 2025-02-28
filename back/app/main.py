@@ -11,7 +11,7 @@ async def lifespan(app: FastAPI):
     app.state.models = load_all_models()
     yield
     # cleanup at shutdown
-    cleanup_all_models(app.state.model)
+    cleanup_all_models(app.state.models)
 
 app = FastAPI(lifespan=lifespan)
 
