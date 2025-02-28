@@ -21,7 +21,7 @@ The app includes:
 ### 1 Clone the repository
 
 ```bash
-git clone https://github.com/YourUsername/isaFIRE.git
+git clone https://github.com/superflash41/isaFIRE.git
 cd isaFIRE
 ```
 
