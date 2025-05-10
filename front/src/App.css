@@ -1,1 +1,24 @@
 @import 'tailwindcss';
+
+.bg-pattern {
+    position: relative;
+}
+
+.bg-pattern::before {
+    /* Using ::before or ::after */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("fire.svg");
+    background-repeat: repeat;
+    background-size: 460px;
+    /* You can adjust this if needed */
+    background-position: center;
+    opacity: 0.03;
+    /* Adjust opacity as desired, e.g., 0.1 or 0.05 for subtlety */
+    /* z-index: -1; */
+    /* Place the pattern behind the content */
+}
